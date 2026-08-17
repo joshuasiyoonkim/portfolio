@@ -2,6 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/work/:slug", "destination": "/project.html" }
+    { "source": "/work/:slug", "destination": "/project" }
   ]
 }
