@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joshua Kim — Software Engineer &amp; Designer</title>
+  <meta name="description" content="Joshua Kim builds software with a designer's eye. Selected work in web, tools, and visual design.">
+
+  <!-- Social preview. Swap the URL for your real domain once deployed. -->
+  <meta property="og:title" content="Joshua Kim — Software Engineer &amp; Designer">
+  <meta property="og:description" content="Selected work in web, tools, and visual design.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to work</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="/">
+        <span class="blocks" aria-hidden="true"><i></i><i></i><i></i></span>
+        Joshua Kim
+      </a>
+      <nav class="site-nav">
+        <a href="/" aria-current="page">Work</a>
+        <a href="/about.html">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ---------- Hero ---------- -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Portfolio — 2026</p>
+            <h1>I build things that are <em>careful</em> on both sides of the screen.</h1>
+            <p class="hero-lede">
+              Computer science degree, design minor. I like the problems that
+              sit between the two — where how something works and how it feels
+              turn out to be the same question.
+            </p>
+          </div>
+
+          <dl class="hero-meta">
+            <div><dt>Based</dt><dd>United States</dd></div>
+            <div><dt>Focus</dt><dd>Web, tools, design systems</dd></div>
+            <div><dt>Status</dt><dd>Open to work</dd></div>
+          </dl>
+        </div>
+
+        <div class="bar-stack" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule">
+
+    <!-- ---------- Work grid ---------- -->
+    <section id="work">
+      <div class="wrap">
+        <div class="work-head">
+          <h2>Selected work</h2>
+          <!-- Filter buttons are generated from your project tags -->
+          <div class="filters" id="filters"></div>
+        </div>
+
+        <!-- Cards are generated from js/projects.js -->
+        <ul class="work-grid" id="work-grid"></ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ---------- Footer / contact ---------- -->
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let's build something.</h2>
+          <p class="hero-lede">
+            I'm open to full-time roles and interesting collaborations.
+            The fastest way to reach me is email.
+          </p>
+        </div>
+        <div>
+          <p class="eyebrow">Elsewhere</p>
+          <div class="contact-links">
+            <a href="mailto:joshuasiyoonkim@gmail.com">Email</a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="/assets/resume.pdf">Résumé</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="colophon">
+        <span>&copy; 2026 Joshua Kim</span>
+        <span>Built from scratch — HTML, CSS, JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/projects.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
