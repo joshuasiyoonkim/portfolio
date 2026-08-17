@@ -164,12 +164,15 @@ const PROJECTS = [
   },
 
   // ==========================================================
-  // NOTE FROM CLAUDE: this is a four-person project and you are
-  // the smallest contributor by commit count (22 of 215). I've
-  // written the entry around the six files whose headers name
-  // you as author — the social graph layer and the health/profile
-  // screens — rather than claiming the app as a whole.
-  // Read the note I left you about the résumé wording on this one.
+  // NOTE FROM CLAUDE: ignore commit counts on this repo — I
+  // leaned on them at first and they're wrong in both directions.
+  // Much of the work was done in person with Harris on one
+  // machine, so joint work is recorded under a single account;
+  // and Daniel was committing every individual change, which
+  // inflates his total. Git measured whose laptop was open and
+  // how often people pressed commit, not who built what.
+  // The collaboration section is a TODO until Josh says which
+  // parts were joint.
   // ==========================================================
   {
     slug: "plates",
@@ -224,17 +227,21 @@ const PROJECTS = [
           "can't drift out of sync with it.",
       },
       {
-        heading: "Where my part started and stopped",
-        // TODO(Josh): the split below is inferred from file authorship
-        // headers, which only record who CREATED each file — not who edited
-        // it afterwards. If you also worked on auth, the forum, or DMs, say
-        // so here. And see my note about how the résumé words this.
+        heading: "Built two to a keyboard",
+        // TODO(Josh): tell me which parts you and Harris built together —
+        // auth? the health layer? DMs? — and I'll make this specific.
+        // Right now it describes how you worked without naming what you
+        // worked on, which is the weaker version.
         body:
-          "Auth, the forum, direct messaging, and notifications were built by " +
-          "Daniel Han, Harris Kim, and Ryan Kim. Working inside someone " +
-          "else's architecture is its own skill — the user model I wrote had " +
-          "to satisfy screens I didn't build, which meant getting the shape " +
-          "of the data right mattered more than getting my own screens right.",
+          "A lot of this app was written in the same room. Harris and I " +
+          "worked through big stretches of it in person on one machine, " +
+          "which is why the commit history credits one of us for work that " +
+          "two of us did. It's a good way to build — decisions get argued " +
+          "out before they're typed instead of discovered in review a week " +
+          "later — and a bad way to leave a paper trail. The rest of the app " +
+          "came from Daniel Han and Ryan Kim, and the pieces had to meet in " +
+          "the middle: the user model I worked on had to satisfy screens I " +
+          "never opened.",
       },
     ],
   },
