@@ -103,6 +103,33 @@ After that, every `git push` redeploys automatically.
 
 ---
 
+## If you change the domain
+
+The site is `https://joshuasiyoonkim.vercel.app`. That address is hard-coded
+in four places for the canonical and social-preview tags:
+
+- `index.html` — `<link rel="canonical">` and the `og:` tags
+- `about.html` — same
+- `project.html` — same (the static fallback values)
+- `js/project.js` — the `SITE` constant near the top
+
+Update all four if you move to a custom domain, and regenerate
+`assets/og.png` since the URL is printed on it.
+
+### A limitation worth knowing
+
+Project pages set their title and preview tags with JavaScript. Browsers and
+Google run JS, so those work there — but most social link scrapers
+(iMessage, Slack, LinkedIn, Facebook) do **not**. Pasting a link to a
+specific project will show the generic site preview, not that project's.
+The homepage and about page previews are fully static, so those are correct
+everywhere.
+
+Fixing it properly means generating a real HTML file per project, which
+needs a build step. Not worth it unless you start sharing deep links often.
+
+---
+
 ## Things to personalize
 
 The site works as-is, but these still say placeholder things:

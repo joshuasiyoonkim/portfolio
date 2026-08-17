@@ -63,9 +63,33 @@
   }
 
   // --- Page metadata ------------------------------------------
+  // The site's public address, used to build absolute URLs for
+  // canonical + social tags. Change this if you move to a custom domain.
+  var SITE = "https://joshuasiyoonkim.vercel.app";
+
+  function setMeta(selector, value) {
+    var el = document.querySelector(selector);
+    if (el) el.setAttribute(selector.indexOf("link") === 0 ? "href" : "content", value);
+  }
+
+  var pageURL = SITE + "/work/" + project.slug;
+  var pageDesc = project.summary || "";
+
+  // Social cards use the project's own cover — but only if it's a raster
+  // image. Facebook, LinkedIn, and iMessage won't render an SVG card, so
+  // anything else falls back to the site-wide preview image.
+  var rasterCover = /\.(png|jpe?g|webp)$/i.test(project.cover || "");
+  var pageImage = rasterCover
+    ? SITE + assetURL(project.cover)
+    : SITE + "/assets/og.png";
+
   document.title = project.title + " — Joshua Kim";
-  var desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.setAttribute("content", project.summary || "");
+  setMeta('meta[name="description"]', pageDesc);
+  setMeta('link[rel="canonical"]', pageURL);
+  setMeta('meta[property="og:title"]', project.title + " — Joshua Kim");
+  setMeta('meta[property="og:description"]', pageDesc);
+  setMeta('meta[property="og:url"]', pageURL);
+  setMeta('meta[property="og:image"]', pageImage);
 
   // --- Build the page -----------------------------------------
   var accentVar = "var(--" + esc(project.accent || "clay") + ")";
