@@ -164,6 +164,75 @@ const PROJECTS = [
   },
 
   {
+    slug: "paparazzi-pursuit",
+    title: "Paparazzi Pursuit",
+    year: "2024",
+    accent: "plum",
+    cover: "assets/covers/paparazzi-pursuit.png",
+    tags: ["Game", "Unity"],
+    role: "Programming (four-person team)",
+
+    summary:
+      "A pixel-art endless runner where you dodge traffic and paparazzi at " +
+      "once — steering and where you're looking are separate controls.",
+
+    overview:
+      "Paparazzi Pursuit is a browser-playable Unity endless runner: you're a " +
+      "celebrity driving down a highway, dodging oncoming traffic while " +
+      "photographers line the roadside. Built by a team of four over about 90 " +
+      "commits. I shared programming with Harris Kim; AJ Rivas did the art and " +
+      "Lucas did music and sound.",
+
+    stack: ["Unity", "C#", "WebGL"],
+
+    links: [
+      { label: "Play in browser", url: "https://joshuasiyoonkim.itch.io/paparazzi-pursuit" },
+      { label: "Source", url: "https://github.com/joshuasiyoonkim/PaparazziPursuit" },
+    ],
+
+    sections: [
+      {
+        heading: "Looking is the mechanic",
+        body:
+          "The idea that makes the game work is splitting movement from " +
+          "attention. A and D steer the car; the arrow keys control which way " +
+          "your character is facing. Every photographer casts a ray at the " +
+          "player along whichever axis you're currently looking — face left " +
+          "and a camera on your left catches you. The detail that makes it " +
+          "tense is the neutral state: if you aren't looking either way, the " +
+          "check fires in both directions at once, so standing still is the " +
+          "most exposed you can be. Surviving means actively looking away " +
+          "from danger while steering into it, and those two demands rarely " +
+          "agree.",
+      },
+      {
+        heading: "Selling depth in a 2D scene",
+        body:
+          "The road is flat sprites, but the photographers are meant to read " +
+          "as approaching from a distance. Each one interpolates its scale " +
+          "from its position between the top and bottom of the screen, so it " +
+          "grows as it comes down the road — perspective faked with a lerp " +
+          "rather than a camera. Everything scrolls off a single shared speed " +
+          "value, which means the whole scene stays in lockstep as the game " +
+          "accelerates, and there's a recovery routine that eases the player " +
+          "back up the screen after a hit, with a cooldown so a bad moment " +
+          "doesn't cascade into an unwinnable one.",
+      },
+      {
+        heading: "Working on someone else's systems",
+        // TODO(Josh): this is the section an interviewer will dig into, and I
+        // can't write it for you — I don't know which parts were yours, where
+        // you and Harris divided the work, or what you'd change. Replace this.
+        body:
+          "This was a team project rather than a solo one, which changed how " +
+          "the code had to be written — systems needed to be legible to " +
+          "someone else and to survive art and audio being swapped in " +
+          "underneath them.",
+      },
+    ],
+  },
+
+  {
     // --- Identity -------------------------------------------
     // `slug` becomes the URL: /work/spotify-wrapped-clone
     // Use lowercase words separated by hyphens. Must be unique.
