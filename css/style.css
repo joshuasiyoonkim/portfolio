@@ -746,6 +746,52 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 1rem;
 }
 
+/* Email — shown in full, with an optional copy button added by
+   js/contact.js. Works without JavaScript; the button just won't appear. */
+.email-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.75rem;
+}
+
+.email-link {
+  font-family: var(--mono);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  word-break: break-all;
+  transition: color 0.2s var(--ease);
+}
+.email-link:hover { color: var(--accent); }
+
+.copy-btn {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+              background 0.2s var(--ease);
+}
+.copy-btn:hover {
+  color: var(--ink);
+  border-color: var(--ink-faint);
+}
+.copy-btn.is-copied {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
