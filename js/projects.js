@@ -9,6 +9,88 @@
    ============================================================ */
 
 const PROJECTS = [
+  // ==========================================================
+  // NOTE FROM CLAUDE: I wrote this entry from your repo and the
+  // live site, so every number and technical claim is checked.
+  // But the sentences about *why* you built it and what you'd
+  // change are my best guess at your reasoning — they're marked
+  // with TODO below. Rewrite those in your own voice; they're
+  // the parts an interviewer will actually ask you about.
+  // ==========================================================
+  {
+    slug: "spikereport",
+    title: "SpikeReport",
+    year: "2026",
+    accent: "sky",
+    cover: "assets/covers/spikereport.png",
+    tags: ["Web", "Full-stack", "Writing"],
+    role: "Design, engineering, and writing",
+
+    summary:
+      "A Valorant editorial site I design, build, and write for — 72 articles " +
+      "running on a file-based publishing system with no database.",
+
+    overview:
+      "SpikeReport is a personal Valorant hub: patch note breakdowns, pro " +
+      "circuit coverage, roster moves, and a curated clip archive. I built the " +
+      "whole thing — the design, the front end, the publishing pipeline — and " +
+      "I write every article on it.",
+
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Vercel"],
+
+    links: [
+      { label: "Live site", url: "https://spike-report.vercel.app" },
+      { label: "Source", url: "https://github.com/joshuasiyoonkim/spike-report" },
+    ],
+
+    sections: [
+      {
+        heading: "The problem",
+        // TODO(Josh): rewrite in your own words — this is my guess at your motivation.
+        body:
+          "Valorant coverage is scattered. Patch analysis lives on Reddit, " +
+          "roster news breaks on Twitter, and the plays worth rewatching are " +
+          "buried in tournament VODs. I wanted one place where all of it sat " +
+          "together, written in a voice that had an actual opinion instead of " +
+          "just reporting the result.",
+      },
+      {
+        heading: "Publishing without a CMS",
+        body:
+          "Every article is a markdown file with YAML frontmatter, parsed with " +
+          "gray-matter and rendered through marked. There's no database and no " +
+          "hosted CMS — publishing is a git commit, which means the content has " +
+          "version history for free and the site has nothing to go down. " +
+          "Categories, reading time, and the RSS feed are all derived from the " +
+          "files themselves, so adding an article means adding one file and " +
+          "nothing else.",
+      },
+      {
+        heading: "Built to be shared, not just visited",
+        body:
+          "Each article generates its own Open Graph image at request time from " +
+          "the headline, category, author, and reading time — so a link pasted " +
+          "into Discord or Twitter arrives as a designed card rather than a bare " +
+          "URL. The site also ships an RSS feed, a sitemap, and a robots policy. " +
+          "None of that is visible on the page, but it's the difference between " +
+          "a site people can find and share and one that just exists.",
+        image: "assets/projects/spikereport-og.png",
+        caption:
+          "A social card generated automatically for one article — no manual design step per post.",
+      },
+      {
+        heading: "What I'd do differently",
+        // TODO(Josh): replace with your real answer. This is the question
+        // interviewers ask most, and it should be genuinely yours.
+        body:
+          "The category system grew organically and now leans heavily on one " +
+          "bucket — most posts are Pro Scene, which makes the filters less " +
+          "useful than they should be. If I rebuilt the taxonomy I'd design it " +
+          "around how I actually publish rather than how I imagined I would.",
+      },
+    ],
+  },
+
   {
     // --- Identity -------------------------------------------
     // `slug` becomes the URL: /work/spotify-wrapped-clone
