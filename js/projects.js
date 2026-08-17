@@ -163,6 +163,73 @@ const PROJECTS = [
     ],
   },
 
+  {
+    slug: "ikea-smart",
+    title: "IKEA Smart",
+    year: "2025",
+    accent: "mustard",
+    cover: "assets/covers/ikea-smart.png",
+    tags: ["Design", "Branding"],
+    role: "Identity design",
+
+    summary:
+      "A sub-brand identity for a smart lighting line — mark, pattern, and " +
+      "packaging, built inside an existing brand's rules. An unaffiliated concept.",
+
+    overview:
+      "IKEA Smart is a self-directed identity project: a sub-brand for a " +
+      "connected lighting range, designed to sit under IKEA's existing visual " +
+      "language rather than compete with it. The work covers the mark, the " +
+      "type lockup, a two-colour palette, a repeating pattern, and how all of " +
+      "it lands on a box. Not affiliated with or endorsed by IKEA.",
+
+    stack: ["Illustrator", "Photoshop"],
+
+    links: [],
+
+    sections: [
+      {
+        heading: "A mark that survives being shrunk",
+        body:
+          "The bulb is drawn with as little as it can stand: one circle, one " +
+          "filament line, a screw base, and a single yellow dot where the " +
+          "light lives. That dot is the only colour in the whole mark, which " +
+          "means the thing still reads at the size of a favicon or an embossed " +
+          "corner on a carton — the sizes packaging marks actually get used " +
+          "at. The lockup borrows IKEA's existing weight and tight tracking " +
+          "so the sub-brand reads as part of the family instead of a guest.",
+        image: "assets/projects/ikea-smart-system.jpg",
+        caption: "Mark, lockup, palette, and the pattern derived from the bulb.",
+      },
+      {
+        heading: "One shape doing two jobs",
+        body:
+          "The pattern isn't a separate decorative asset — it's the same bulb " +
+          "tiled at a larger scale and cropped by the frame. That's the part " +
+          "that makes it a system rather than a logo: the identity has a way " +
+          "to fill space when it needs to, and it costs nothing extra to " +
+          "produce because it's already drawn. Yellow stays rationed even " +
+          "here, one dot per bulb, so a whole surface of pattern still reads " +
+          "as mostly black and white.",
+      },
+      {
+        heading: "Proving it on a box",
+        body:
+          "An identity that only exists on a white artboard hasn't been " +
+          "tested yet. Putting it on packaging forces the questions that " +
+          "matter — how the mark sits on the primary face, how the lockup " +
+          "shrinks onto a side panel, what goes on the hang tab. The flat " +
+          "line weight and the single spot of yellow hold up at those sizes, " +
+          "which is really what the restraint was for.",
+        image: "assets/projects/ikea-smart-packaging.png",
+        // TODO(Josh): this render still has the SmartMockups watermark baked
+        // into the bottom-left. Re-export without it and swap the file —
+        // same filename and it'll just replace itself.
+        caption: "The system applied to product packaging.",
+      },
+    ],
+  },
+
   // ==========================================================
   // NOTE FROM CLAUDE: ignore commit counts on this repo — I
   // leaned on them at first and they're wrong in both directions.
