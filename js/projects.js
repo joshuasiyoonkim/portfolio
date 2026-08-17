@@ -164,6 +164,79 @@ const PROJECTS = [
   },
 
   {
+    slug: "book-of-sand",
+    title: "The Book of Sand",
+    // TODO(Josh): I assumed 2025, same period as IKEA Smart. Correct it
+    // if this was an earlier course.
+    year: "2025",
+    accent: "ink",
+    cover: "assets/covers/book-of-sand.png",
+    tags: ["Design", "Typography"],
+    role: "Editorial design",
+
+    summary:
+      "Borges' story about an infinite book, set as a seven-page editorial " +
+      "layout — where the illustrations argue with the text instead of decorating it.",
+
+    overview:
+      "A typographic project: taking Jorge Luis Borges' short story " +
+      "\"The Book of Sand\" and setting it as a seven-page magazine feature. " +
+      "The story is about a book with infinite pages — no first page, no " +
+      "last — which makes the finite, numbered, physically bounded object of " +
+      "a magazine spread an unusually pointed thing to put it inside.",
+
+    stack: ["InDesign", "Illustrator"],
+
+    links: [],
+
+    sections: [
+      {
+        heading: "One system, seven pages",
+        body:
+          "The layout runs on a grid that holds whether a page is solid text " +
+          "or half image. A black bar carries the running head across every " +
+          "page, and it alternates edge with the page — right on odd pages, " +
+          "left on even — so a reader flipping through gets the rhythm of a " +
+          "real publication rather than a repeating template. Folios sit in " +
+          "the outer corner throughout. Nothing moves without a reason, which " +
+          "is what makes the pages where something does move read as chosen.",
+        image: "assets/projects/bookofsand-grid.png",
+        caption:
+          "Working spreads in InDesign, greeked — the structure underneath before any content lands.",
+      },
+      {
+        heading: "Images that argue with the text",
+        body:
+          "The illustrations aren't scenes from the story. Beside the passage " +
+          "where the bookseller explains that the number of pages is exactly " +
+          "infinite — no page the first, none the last — there's an engraving " +
+          "of a railway running to a vanishing point. Next to the trade for " +
+          "the Wyclif Bible, a full page of clocks, watches, and hourglasses. " +
+          "Neither picture shows anything that happens in the plot; both are " +
+          "about the ideas underneath it, infinity and time. That's the " +
+          "difference between illustrating a story and reading one.",
+        image: "assets/projects/bookofsand-p4.jpg",
+        caption:
+          "Page 4 — the vanishing-point railway set against the passage on infinite pages.",
+      },
+      {
+        heading: "Two voices in the type",
+        body:
+          "The title is set in a calligraphic blackletter with heavy contrast " +
+          "and long, curling terminals; the body is a plain, evenly-coloured " +
+          "serif that gets out of the way for pages at a stretch. The display " +
+          "face does the work of signalling that this is an old, strange, " +
+          "faintly occult object — which the story needs you to believe before " +
+          "the bookseller ever knocks. Everything is black and white, no rules " +
+          "beyond the header bar. On a text this odd, ornament would only " +
+          "compete with it.",
+        image: "assets/projects/bookofsand-p1.jpg",
+        caption: "The opening page.",
+      },
+    ],
+  },
+
+  {
     slug: "ikea-smart",
     title: "IKEA Smart",
     year: "2025",
