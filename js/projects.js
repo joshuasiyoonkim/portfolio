@@ -163,6 +163,82 @@ const PROJECTS = [
     ],
   },
 
+  // ==========================================================
+  // NOTE FROM CLAUDE: this is a four-person project and you are
+  // the smallest contributor by commit count (22 of 215). I've
+  // written the entry around the six files whose headers name
+  // you as author — the social graph layer and the health/profile
+  // screens — rather than claiming the app as a whole.
+  // Read the note I left you about the résumé wording on this one.
+  // ==========================================================
+  {
+    slug: "plates",
+    title: "Plates",
+    year: "2024",
+    accent: "olive",
+    cover: "assets/covers/plates.png",
+    tags: ["iOS", "Swift"],
+    role: "iOS engineering (four-person team)",
+
+    summary:
+      "A fitness social network for iOS. I built the social graph layer " +
+      "and the health tracking screens on the profile.",
+
+    overview:
+      "Plates is an iOS app where people post from the gym, follow each " +
+      "other, message, and track their own health data. It's a four-person " +
+      "project — around 40 Swift files across auth, a forum, direct " +
+      "messaging, notifications, and health. My work was concentrated in two " +
+      "areas: the Firestore layer that models users and the follow graph, " +
+      "and the health and leaderboard views on the profile.",
+
+    stack: ["Swift", "SwiftUI", "Firebase / Firestore", "HealthKit", "Swift Charts"],
+
+    links: [
+      { label: "Source", url: "https://github.com/joshuasiyoonkim/Fitness-App" },
+    ],
+
+    sections: [
+      {
+        heading: "Modelling the follow graph",
+        body:
+          "Following someone isn't one boolean — it's a small state machine, " +
+          "and I wrote the layer that runs it. A request lands in a pending " +
+          "array on the recipient's user document; accepting moves that ID " +
+          "out of pending and into followers; declining removes it without " +
+          "trace. Every one of those transitions also emits a notification, " +
+          "so the social feedback people expect isn't bolted on afterwards — " +
+          "it's part of the same write. The same layer handles likes and " +
+          "comments the same way.",
+      },
+      {
+        heading: "Health data on the profile",
+        body:
+          "The profile's health section reads step count and active energy " +
+          "from HealthKit and renders weekly trends with Swift Charts, " +
+          "alongside a calorie log you can add to and delete from. The " +
+          "underlying model stores what the user actually typed — feet and " +
+          "inches, pounds — and derives the metric values and BMI as computed " +
+          "properties rather than converting on input. That way the stored " +
+          "data still matches what someone entered, and the derived numbers " +
+          "can't drift out of sync with it.",
+      },
+      {
+        heading: "Where my part started and stopped",
+        // TODO(Josh): the split below is inferred from file authorship
+        // headers, which only record who CREATED each file — not who edited
+        // it afterwards. If you also worked on auth, the forum, or DMs, say
+        // so here. And see my note about how the résumé words this.
+        body:
+          "Auth, the forum, direct messaging, and notifications were built by " +
+          "Daniel Han, Harris Kim, and Ryan Kim. Working inside someone " +
+          "else's architecture is its own skill — the user model I wrote had " +
+          "to satisfy screens I didn't build, which meant getting the shape " +
+          "of the data right mattered more than getting my own screens right.",
+      },
+    ],
+  },
+
   {
     slug: "paparazzi-pursuit",
     title: "Paparazzi Pursuit",
