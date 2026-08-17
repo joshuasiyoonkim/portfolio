@@ -171,8 +171,8 @@ const PROJECTS = [
   // and Daniel was committing every individual change, which
   // inflates his total. Git measured whose laptop was open and
   // how often people pressed commit, not who built what.
-  // The collaboration section is a TODO until Josh says which
-  // parts were joint.
+  // (That second point is context for you, not for the page —
+  // it's deliberately not in the public copy.)
   // ==========================================================
   {
     slug: "plates",
@@ -191,9 +191,10 @@ const PROJECTS = [
       "Plates is an iOS app where people post from the gym, follow each " +
       "other, message, and track their own health data. It's a four-person " +
       "project — around 40 Swift files across auth, a forum, direct " +
-      "messaging, notifications, and health. My work was concentrated in two " +
-      "areas: the Firestore layer that models users and the follow graph, " +
-      "and the health and leaderboard views on the profile.",
+      "messaging, notifications, and health. Much of it was built in person " +
+      "with Harris Kim, sharing a machine; the parts most clearly mine are " +
+      "the Firestore layer that models users and the follow graph, and the " +
+      "health and leaderboard views on the profile.",
 
     stack: ["Swift", "SwiftUI", "Firebase / Firestore", "HealthKit", "Swift Charts"],
 
@@ -228,19 +229,18 @@ const PROJECTS = [
       },
       {
         heading: "Built two to a keyboard",
-        // TODO(Josh): tell me which parts you and Harris built together —
-        // auth? the health layer? DMs? — and I'll make this specific.
-        // Right now it describes how you worked without naming what you
-        // worked on, which is the weaker version.
         body:
-          "A lot of this app was written in the same room. Harris and I " +
-          "worked through big stretches of it in person on one machine, " +
-          "which is why the commit history credits one of us for work that " +
-          "two of us did. It's a good way to build — decisions get argued " +
-          "out before they're typed instead of discovered in review a week " +
-          "later — and a bad way to leave a paper trail. The rest of the app " +
-          "came from Daniel Han and Ryan Kim, and the pieces had to meet in " +
-          "the middle: the user model I worked on had to satisfy screens I " +
+          "Most of this app was written in the same room. Harris and I " +
+          "worked through it together in person, usually on one machine, so " +
+          "the commit history credits whoever happened to be typing rather " +
+          "than who did the thinking. There isn't a clean line where my half " +
+          "ends and his begins, and pretending otherwise would be tidier " +
+          "than the truth. What pairing bought us was fewer bad decisions " +
+          "surviving: the argument about how to model a user, or where " +
+          "health data belonged, happened before the code existed instead of " +
+          "in review a week later. Daniel Han and Ryan Kim built the forum, " +
+          "notifications, and much of the messaging, and the parts had to " +
+          "meet in the middle — the user model had to satisfy screens I " +
           "never opened.",
       },
     ],
