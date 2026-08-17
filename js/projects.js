@@ -92,6 +92,78 @@ const PROJECTS = [
   },
 
   {
+    slug: "fslr-leaderboard",
+    title: "FSLR Official Gamer Skill Ranking",
+    year: "2026",
+    accent: "mustard",
+    cover: "assets/covers/fslr-leaderboard.png",
+    tags: ["Web", "Design", "Writing"],
+    role: "Design, engineering, and writing",
+
+    summary:
+      "A fake international ranking body that rates four streamers on a " +
+      "made-up skill metric. One HTML file, no dependencies, entirely straight-faced.",
+
+    overview:
+      "FSLR is a parody of the sanctioning bodies that publish world rankings — " +
+      "the ATP, FIFA, that genre of institution. It ranks four streamers " +
+      "(Fuslie, Squeex, Ludwig, and Rae) on the FOGSR™ Rating, a formula I " +
+      "invented and have since revised to version 3.1. The entire site is a " +
+      "single hand-written HTML file with no framework and no dependencies.",
+
+    stack: ["HTML", "CSS", "JavaScript", "Vercel"],
+
+    links: [
+      { label: "Live site", url: "https://fslr-gaming-leaderboard.vercel.app" },
+      { label: "Source", url: "https://github.com/joshuasiyoonkim/fslr-gaming-leaderboard" },
+    ],
+
+    sections: [
+      {
+        heading: "The joke only works if nothing winks",
+        // TODO(Josh): the design reasoning here is mine, inferred from the
+        // execution. Rewrite if you were actually thinking something else.
+        body:
+          "Every design decision serves the same goal: look like a real " +
+          "governing body. Dark navy and gold, a crest, a blinking LIVE " +
+          "indicator, a scrolling headline ticker, a ranking table with " +
+          "movement arrows and a numeric rating to two decimals. Nothing on " +
+          "the page announces that it's a bit. The comedy lives entirely in " +
+          "the copy — the methodology cites section numbers, publishes an " +
+          "Independence Statement denying the obvious, and notes that a " +
+          "player's engagement is \"happiness-neutral and rating-negative.\" " +
+          "If the design broke character even once, none of the writing would land.",
+      },
+      {
+        heading: "One file, no dependencies",
+        body:
+          "The whole site is 517 lines of HTML with the CSS and JavaScript " +
+          "inline — no build step, no framework, nothing to install. That " +
+          "constraint didn't mean skipping the engineering, though. YouTube " +
+          "embeds load as lightweight facades that only swap in the real " +
+          "iframe on click, so six videos cost nothing until someone wants " +
+          "one. The forfeit deadline is a live countdown rather than a hard-" +
+          "coded number, because a static date goes stale and undercuts the " +
+          "premise that the committee is watching. The headline ticker loops " +
+          "seamlessly in pure CSS by duplicating the track and translating " +
+          "exactly one copy-width.",
+      },
+      {
+        heading: "Writing as the product",
+        body:
+          "Most of the work here was writing, not code. The rating formula " +
+          "has named coefficients that each encode a specific joke — a Micro " +
+          "Decay Coefficient for time spent away from ranked play, an " +
+          "Off-Ladder Life Events deduction weighted by hours removed from " +
+          "the queue. The bit holds together because the internal logic is " +
+          "consistent: rulings reference clauses, clauses have version " +
+          "numbers, and the committee never breaks character, including in " +
+          "the disclaimer clarifying it is a parody operated by fans.",
+      },
+    ],
+  },
+
+  {
     // --- Identity -------------------------------------------
     // `slug` becomes the URL: /work/spotify-wrapped-clone
     // Use lowercase words separated by hyphens. Must be unique.
