@@ -406,11 +406,15 @@ img { max-width: 100%; height: auto; display: block; }
   flex: 1;
 }
 
+/* This is a <ul>, so the UA default list padding and markers have to go —
+   without the reset the tags sit 40px right of the title and summary. */
 .tag-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-top: 0.15rem;
 }
 
 .tag {
