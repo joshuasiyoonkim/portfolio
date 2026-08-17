@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" width="480" height="600" role="img" aria-label="Portrait placeholder">
-  <rect width="480" height="600" fill="#EFE6D6"/>
-  <circle cx="240" cy="235" r="92" fill="#C2563A" opacity="0.8"/>
-  <path d="M80 600c0-95 72-172 160-172s160 77 160 172z" fill="#6D7B4B" opacity="0.75"/>
-  <text x="240" y="560" text-anchor="middle" font-family="monospace" font-size="17" fill="#221E19" opacity="0.45">add assets/portrait.jpg</text>
-</svg>
