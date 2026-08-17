@@ -652,6 +652,60 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .portrait img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Experience list */
+.experience {
+  padding-block: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--rule);
+}
+
+.exp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.exp-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.15rem 1.5rem;
+  padding-block: 1.05rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.exp-list li:last-child { border-bottom: 0; }
+
+.exp-role {
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  grid-column: 1;
+}
+
+.exp-org {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  grid-column: 1;
+}
+
+.exp-when {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .exp-list li { grid-template-columns: minmax(0, 1fr); }
+  .exp-when { grid-column: 1; grid-row: auto; margin-top: 0.35rem; }
+}
+
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
