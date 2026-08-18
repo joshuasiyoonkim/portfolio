@@ -27,8 +27,8 @@ const PROJECTS = [
     role: "Design, engineering, and writing",
 
     summary:
-      "A Valorant editorial site I design, build, and write for — 72 articles " +
-      "running on a file-based publishing system with no database.",
+      "A Valorant editorial site I design, build, and write for — 74 articles " +
+      "running on a statically generated publishing pipeline with no database.",
 
     overview:
       "SpikeReport is a personal Valorant hub: patch note breakdowns, pro " +
@@ -66,6 +66,21 @@ const PROJECTS = [
           "nothing else.",
       },
       {
+        heading: "Why there's no database",
+        body:
+          "Article routes are pre-rendered at build time through " +
+          "generateStaticParams, so all 74 pages are static HTML by the time " +
+          "anyone requests one — the content layer is the filesystem and the " +
+          "build is the pipeline. The interesting consequence is the editor: " +
+          "there's an admin route that writes markdown files directly, and it " +
+          "is explicitly disabled when NODE_ENV is production. That isn't " +
+          "caution for its own sake. On serverless the filesystem is ephemeral " +
+          "and read-only, so a write endpoint that works perfectly in local " +
+          "development would fail silently once deployed. Gating it was the " +
+          "honest fix. Roughly 89KB of TypeScript across 39 files and 17 " +
+          "components.",
+      },
+      {
         heading: "Built to be shared, not just visited",
         body:
           "Each article generates its own Open Graph image at request time from " +
@@ -87,218 +102,6 @@ const PROJECTS = [
           "bucket — most posts are Pro Scene, which makes the filters less " +
           "useful than they should be. If I rebuilt the taxonomy I'd design it " +
           "around how I actually publish rather than how I imagined I would.",
-      },
-    ],
-  },
-
-  {
-    slug: "fslr-leaderboard",
-    title: "FSLR Official Gamer Skill Ranking",
-    year: "2026",
-    accent: "mustard",
-    cover: "assets/covers/fslr-leaderboard.png",
-    tags: ["Web", "Design", "Writing"],
-    role: "Design, engineering, and writing",
-
-    summary:
-      "A fake international ranking body that rates four streamers on a " +
-      "made-up skill metric. One HTML file, no dependencies, entirely straight-faced.",
-
-    overview:
-      "FSLR is a parody of the sanctioning bodies that publish world rankings — " +
-      "the ATP, FIFA, that genre of institution. It ranks four streamers " +
-      "(Fuslie, Squeex, Ludwig, and Rae) on the FOGSR™ Rating, a formula I " +
-      "invented and have since revised to version 3.1. The entire site is a " +
-      "single hand-written HTML file with no framework and no dependencies.",
-
-    stack: ["HTML", "CSS", "JavaScript", "Vercel"],
-
-    links: [
-      { label: "Live site", url: "https://fslr-gaming-leaderboard.vercel.app" },
-      { label: "Source", url: "https://github.com/joshuasiyoonkim/fslr-gaming-leaderboard" },
-    ],
-
-    sections: [
-      {
-        heading: "The joke only works if nothing winks",
-        // TODO(Josh): the design reasoning here is mine, inferred from the
-        // execution. Rewrite if you were actually thinking something else.
-        body:
-          "Every design decision serves the same goal: look like a real " +
-          "governing body. Dark navy and gold, a crest, a blinking LIVE " +
-          "indicator, a scrolling headline ticker, a ranking table with " +
-          "movement arrows and a numeric rating to two decimals. Nothing on " +
-          "the page announces that it's a bit. The comedy lives entirely in " +
-          "the copy — the methodology cites section numbers, publishes an " +
-          "Independence Statement denying the obvious, and notes that a " +
-          "player's engagement is \"happiness-neutral and rating-negative.\" " +
-          "If the design broke character even once, none of the writing would land.",
-      },
-      {
-        heading: "One file, no dependencies",
-        body:
-          "The whole site is 517 lines of HTML with the CSS and JavaScript " +
-          "inline — no build step, no framework, nothing to install. That " +
-          "constraint didn't mean skipping the engineering, though. YouTube " +
-          "embeds load as lightweight facades that only swap in the real " +
-          "iframe on click, so six videos cost nothing until someone wants " +
-          "one. The forfeit deadline is a live countdown rather than a hard-" +
-          "coded number, because a static date goes stale and undercuts the " +
-          "premise that the committee is watching. The headline ticker loops " +
-          "seamlessly in pure CSS by duplicating the track and translating " +
-          "exactly one copy-width.",
-      },
-      {
-        heading: "Writing as the product",
-        body:
-          "Most of the work here was writing, not code. The rating formula " +
-          "has named coefficients that each encode a specific joke — a Micro " +
-          "Decay Coefficient for time spent away from ranked play, an " +
-          "Off-Ladder Life Events deduction weighted by hours removed from " +
-          "the queue. The bit holds together because the internal logic is " +
-          "consistent: rulings reference clauses, clauses have version " +
-          "numbers, and the committee never breaks character, including in " +
-          "the disclaimer clarifying it is a parody operated by fans.",
-      },
-    ],
-  },
-
-  {
-    slug: "book-of-sand",
-    title: "The Book of Sand",
-    // TODO(Josh): I assumed 2025, same period as IKEA Smart. Correct it
-    // if this was an earlier course.
-    year: "2025",
-    accent: "ink",
-    cover: "assets/covers/book-of-sand.png",
-    tags: ["Design", "Typography"],
-    role: "Editorial design",
-
-    summary:
-      "Borges' story about an infinite book, set as a seven-page editorial " +
-      "layout — where the illustrations argue with the text instead of decorating it.",
-
-    overview:
-      "A typographic project: taking Jorge Luis Borges' short story " +
-      "\"The Book of Sand\" and setting it as a seven-page magazine feature. " +
-      "The story is about a book with infinite pages — no first page, no " +
-      "last — which makes the finite, numbered, physically bounded object of " +
-      "a magazine spread an unusually pointed thing to put it inside.",
-
-    stack: ["InDesign", "Illustrator"],
-
-    links: [],
-
-    sections: [
-      {
-        heading: "One system, seven pages",
-        body:
-          "The layout runs on a grid that holds whether a page is solid text " +
-          "or half image. A black bar carries the running head across every " +
-          "page, and it alternates edge with the page — right on odd pages, " +
-          "left on even — so a reader flipping through gets the rhythm of a " +
-          "real publication rather than a repeating template. Folios sit in " +
-          "the outer corner throughout. Nothing moves without a reason, which " +
-          "is what makes the pages where something does move read as chosen.",
-        image: "assets/projects/bookofsand-grid.png",
-        caption:
-          "Working spreads in InDesign, greeked — the structure underneath before any content lands.",
-      },
-      {
-        heading: "Images that argue with the text",
-        body:
-          "The illustrations aren't scenes from the story. Beside the passage " +
-          "where the bookseller explains that the number of pages is exactly " +
-          "infinite — no page the first, none the last — there's an engraving " +
-          "of a railway running to a vanishing point. Next to the trade for " +
-          "the Wyclif Bible, a full page of clocks, watches, and hourglasses. " +
-          "Neither picture shows anything that happens in the plot; both are " +
-          "about the ideas underneath it, infinity and time. That's the " +
-          "difference between illustrating a story and reading one.",
-        image: "assets/projects/bookofsand-p4.jpg",
-        caption:
-          "Page 4 — the vanishing-point railway set against the passage on infinite pages.",
-      },
-      {
-        heading: "Two voices in the type",
-        body:
-          "The title is set in a calligraphic blackletter with heavy contrast " +
-          "and long, curling terminals; the body is a plain, evenly-coloured " +
-          "serif that gets out of the way for pages at a stretch. The display " +
-          "face does the work of signalling that this is an old, strange, " +
-          "faintly occult object — which the story needs you to believe before " +
-          "the bookseller ever knocks. Everything is black and white, no rules " +
-          "beyond the header bar. On a text this odd, ornament would only " +
-          "compete with it.",
-        image: "assets/projects/bookofsand-p1.jpg",
-        caption: "The opening page.",
-      },
-    ],
-  },
-
-  {
-    slug: "ikea-smart",
-    title: "IKEA Smart",
-    year: "2025",
-    accent: "mustard",
-    cover: "assets/covers/ikea-smart.png",
-    tags: ["Design", "Branding"],
-    role: "Identity design",
-
-    summary:
-      "A sub-brand identity for a smart lighting line — mark, pattern, and " +
-      "packaging, built inside an existing brand's rules. An unaffiliated concept.",
-
-    overview:
-      "IKEA Smart is a self-directed identity project: a sub-brand for a " +
-      "connected lighting range, designed to sit under IKEA's existing visual " +
-      "language rather than compete with it. The work covers the mark, the " +
-      "type lockup, a two-colour palette, a repeating pattern, and how all of " +
-      "it lands on a box. Not affiliated with or endorsed by IKEA.",
-
-    stack: ["Illustrator", "Photoshop"],
-
-    links: [],
-
-    sections: [
-      {
-        heading: "A mark that survives being shrunk",
-        body:
-          "The bulb is drawn with as little as it can stand: one circle, one " +
-          "filament line, a screw base, and a single yellow dot where the " +
-          "light lives. That dot is the only colour in the whole mark, which " +
-          "means the thing still reads at the size of a favicon or an embossed " +
-          "corner on a carton — the sizes packaging marks actually get used " +
-          "at. The lockup borrows IKEA's existing weight and tight tracking " +
-          "so the sub-brand reads as part of the family instead of a guest.",
-        image: "assets/projects/ikea-smart-system.jpg",
-        caption: "Mark, lockup, palette, and the pattern derived from the bulb.",
-      },
-      {
-        heading: "One shape doing two jobs",
-        body:
-          "The pattern isn't a separate decorative asset — it's the same bulb " +
-          "tiled at a larger scale and cropped by the frame. That's the part " +
-          "that makes it a system rather than a logo: the identity has a way " +
-          "to fill space when it needs to, and it costs nothing extra to " +
-          "produce because it's already drawn. Yellow stays rationed even " +
-          "here, one dot per bulb, so a whole surface of pattern still reads " +
-          "as mostly black and white.",
-      },
-      {
-        heading: "Proving it on a box",
-        body:
-          "An identity that only exists on a white artboard hasn't been " +
-          "tested yet. Putting it on packaging forces the questions that " +
-          "matter — how the mark sits on the primary face, how the lockup " +
-          "shrinks onto a side panel, what goes on the hang tab. The flat " +
-          "line weight and the single spot of yellow hold up at those sizes, " +
-          "which is really what the restraint was for.",
-        image: "assets/projects/ikea-smart-packaging.png",
-        // TODO(Josh): this render still has the SmartMockups watermark baked
-        // into the bottom-left. Re-export without it and swap the file —
-        // same filename and it'll just replace itself.
-        caption: "The system applied to product packaging.",
       },
     ],
   },
@@ -387,6 +190,80 @@ const PROJECTS = [
   },
 
   {
+    slug: "fslr-leaderboard",
+    title: "FSLR Official Gamer Skill Ranking",
+    year: "2026",
+    accent: "mustard",
+    cover: "assets/covers/fslr-leaderboard.png",
+    tags: ["Web", "Design", "Writing"],
+    role: "Design, engineering, and writing",
+
+    summary:
+      "A fake international ranking body that rates four streamers on a " +
+      "made-up skill metric. One HTML file, no dependencies, entirely straight-faced.",
+
+    overview:
+      "FSLR are four streamers — Fuslie, Squeex, Ludwig, and Rae — who mostly " +
+      "just hang out together. This site treats that friend group as though it " +
+      "were a professional sport, and itself as the governing body that rates " +
+      "them: a parody of the ATP, FIFA, that genre of institution, scoring all " +
+      "four on the FOGSR™ Rating, a formula I invented and have since revised " +
+      "to version 3.1. The whole thing is a single hand-written HTML file with " +
+      "no framework and no dependencies.",
+
+    stack: ["HTML", "CSS", "JavaScript", "Vercel"],
+
+    links: [
+      { label: "Live site", url: "https://fslr-gaming-leaderboard.vercel.app" },
+      { label: "Source", url: "https://github.com/joshuasiyoonkim/fslr-gaming-leaderboard" },
+    ],
+
+    sections: [
+      {
+        heading: "The joke only works if nothing winks",
+        // TODO(Josh): the design reasoning here is mine, inferred from the
+        // execution. Rewrite if you were actually thinking something else.
+        body:
+          "Every design decision serves the same goal: look like a real " +
+          "governing body. Dark navy and gold, a crest, a blinking LIVE " +
+          "indicator, a scrolling headline ticker, a ranking table with " +
+          "movement arrows and a numeric rating to two decimals. Nothing on " +
+          "the page announces that it's a bit. The comedy lives entirely in " +
+          "the copy — the methodology cites section numbers, publishes an " +
+          "Independence Statement denying the obvious, and notes that a " +
+          "player's engagement is \"happiness-neutral and rating-negative.\" " +
+          "If the design broke character even once, none of the writing would land.",
+      },
+      {
+        heading: "One file, no dependencies",
+        body:
+          "The whole site is 517 lines of HTML with the CSS and JavaScript " +
+          "inline — no build step, no framework, nothing to install. That " +
+          "constraint didn't mean skipping the engineering, though. YouTube " +
+          "embeds load as lightweight facades that only swap in the real " +
+          "iframe on click, so six videos cost nothing until someone wants " +
+          "one. The forfeit deadline is a live countdown rather than a hard-" +
+          "coded number, because a static date goes stale and undercuts the " +
+          "premise that the committee is watching. The headline ticker loops " +
+          "seamlessly in pure CSS by duplicating the track and translating " +
+          "exactly one copy-width.",
+      },
+      {
+        heading: "Writing as the product",
+        body:
+          "Most of the work here was writing, not code. The rating formula " +
+          "has named coefficients that each encode a specific joke — a Micro " +
+          "Decay Coefficient for time spent away from ranked play, an " +
+          "Off-Ladder Life Events deduction weighted by hours removed from " +
+          "the queue. The bit holds together because the internal logic is " +
+          "consistent: rulings reference clauses, clauses have version " +
+          "numbers, and the committee never breaks character, including in " +
+          "the disclaimer clarifying it is a parody operated by fans.",
+      },
+    ],
+  },
+
+  {
     slug: "paparazzi-pursuit",
     title: "Paparazzi Pursuit",
     year: "2024",
@@ -451,6 +328,146 @@ const PROJECTS = [
           "the code had to be written — systems needed to be legible to " +
           "someone else and to survive art and audio being swapped in " +
           "underneath them.",
+      },
+    ],
+  },
+
+  {
+    slug: "ikea-smart",
+    title: "IKEA Smart",
+    year: "2025",
+    accent: "mustard",
+    cover: "assets/covers/ikea-smart.png",
+    tags: ["Design", "Branding"],
+    role: "Identity design",
+
+    summary:
+      "A sub-brand identity for a smart lighting line — mark, pattern, and " +
+      "packaging, built inside an existing brand's rules. An unaffiliated concept.",
+
+    overview:
+      "IKEA Smart is a self-directed identity project: a sub-brand for a " +
+      "connected lighting range, designed to sit under IKEA's existing visual " +
+      "language rather than compete with it. The work covers the mark, the " +
+      "type lockup, a two-colour palette, a repeating pattern, and how all of " +
+      "it lands on a box. Not affiliated with or endorsed by IKEA.",
+
+    stack: ["Illustrator", "Photoshop"],
+
+    links: [],
+
+    sections: [
+      {
+        heading: "A mark that survives being shrunk",
+        body:
+          "The bulb is drawn with as little as it can stand: one circle, one " +
+          "filament line, a screw base, and a single yellow dot where the " +
+          "light lives. That dot is the only colour in the whole mark, which " +
+          "means the thing still reads at the size of a favicon or an embossed " +
+          "corner on a carton — the sizes packaging marks actually get used " +
+          "at. The lockup borrows IKEA's existing weight and tight tracking " +
+          "so the sub-brand reads as part of the family instead of a guest.",
+        image: "assets/projects/ikea-smart-system.jpg",
+        caption: "Mark, lockup, palette, and the pattern derived from the bulb.",
+      },
+      {
+        heading: "One shape doing two jobs",
+        body:
+          "The pattern isn't a separate decorative asset — it's the same bulb " +
+          "tiled at a larger scale and cropped by the frame. That's the part " +
+          "that makes it a system rather than a logo: the identity has a way " +
+          "to fill space when it needs to, and it costs nothing extra to " +
+          "produce because it's already drawn. Yellow stays rationed even " +
+          "here, one dot per bulb, so a whole surface of pattern still reads " +
+          "as mostly black and white.",
+      },
+      {
+        heading: "Proving it on a box",
+        body:
+          "An identity that only exists on a white artboard hasn't been " +
+          "tested yet. Putting it on packaging forces the questions that " +
+          "matter — how the mark sits on the primary face, how the lockup " +
+          "shrinks onto a side panel, what goes on the hang tab. The flat " +
+          "line weight and the single spot of yellow hold up at those sizes, " +
+          "which is really what the restraint was for.",
+        image: "assets/projects/ikea-smart-packaging.png",
+        // TODO(Josh): this render still has the SmartMockups watermark baked
+        // into the bottom-left. Re-export without it and swap the file —
+        // same filename and it'll just replace itself.
+        caption: "The system applied to product packaging.",
+      },
+    ],
+  },
+
+  {
+    slug: "book-of-sand",
+    title: "The Book of Sand",
+    // TODO(Josh): I assumed 2025, same period as IKEA Smart. Correct it
+    // if this was an earlier course.
+    year: "2025",
+    accent: "ink",
+    cover: "assets/covers/book-of-sand.png",
+    tags: ["Design", "Typography"],
+    role: "Editorial design",
+
+    summary:
+      "Borges' story about an infinite book, set as a seven-page editorial " +
+      "layout — where the illustrations argue with the text instead of decorating it.",
+
+    overview:
+      "A typographic project: taking Jorge Luis Borges' short story " +
+      "\"The Book of Sand\" and setting it as a seven-page magazine feature. " +
+      "The story is about a book with infinite pages — no first page, no " +
+      "last — which makes the finite, numbered, physically bounded object of " +
+      "a magazine spread an unusually pointed thing to put it inside.",
+
+    stack: ["InDesign", "Illustrator"],
+
+    links: [],
+
+    sections: [
+      {
+        heading: "One system, seven pages",
+        body:
+          "The layout runs on a grid that holds whether a page is solid text " +
+          "or half image. A black bar carries the running head across every " +
+          "page, and it alternates edge with the page — right on odd pages, " +
+          "left on even — so a reader flipping through gets the rhythm of a " +
+          "real publication rather than a repeating template. Folios sit in " +
+          "the outer corner throughout. Nothing moves without a reason, which " +
+          "is what makes the pages where something does move read as chosen.",
+        image: "assets/projects/bookofsand-grid.png",
+        caption:
+          "Working spreads in InDesign, greeked — the structure underneath before any content lands.",
+      },
+      {
+        heading: "Images that argue with the text",
+        body:
+          "The illustrations aren't scenes from the story. Beside the passage " +
+          "where the bookseller explains that the number of pages is exactly " +
+          "infinite — no page the first, none the last — there's an engraving " +
+          "of a railway running to a vanishing point. Next to the trade for " +
+          "the Wyclif Bible, a full page of clocks, watches, and hourglasses. " +
+          "Neither picture shows anything that happens in the plot; both are " +
+          "about the ideas underneath it, infinity and time. That's the " +
+          "difference between illustrating a story and reading one.",
+        image: "assets/projects/bookofsand-p4.jpg",
+        caption:
+          "Page 4 — the vanishing-point railway set against the passage on infinite pages.",
+      },
+      {
+        heading: "Two voices in the type",
+        body:
+          "The title is set in a calligraphic blackletter with heavy contrast " +
+          "and long, curling terminals; the body is a plain, evenly-coloured " +
+          "serif that gets out of the way for pages at a stretch. The display " +
+          "face does the work of signalling that this is an old, strange, " +
+          "faintly occult object — which the story needs you to believe before " +
+          "the bookseller ever knocks. Everything is black and white, no rules " +
+          "beyond the header bar. On a text this odd, ornament would only " +
+          "compete with it.",
+        image: "assets/projects/bookofsand-p1.jpg",
+        caption: "The opening page.",
       },
     ],
   },
