@@ -248,6 +248,19 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.55;
 }
 
+/* Primary calls to action, kept above the fold */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.9rem;
+}
+.hero-cta .btn {
+  justify-content: center;
+  padding: 0.78rem 1.4rem;
+  font-size: 0.92rem;
+}
+
 .hero-meta {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -694,9 +707,18 @@ img { max-width: 100%; height: auto; display: block; }
   grid-column: 1;
 }
 
+.exp-note {
+  grid-column: 1;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 62ch;
+  margin-top: 0.4rem;
+}
+
 .exp-when {
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
