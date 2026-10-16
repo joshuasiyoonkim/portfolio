@@ -31,7 +31,12 @@ const PROJECTS = [
 
     stack: ["Thunkable", "Google Slides", "Zoom"],
 
-    links: [],
+    // The organization's own links, not mine — I help their media team
+    // run both now.
+    links: [
+      { label: "POCO Foundation", url: "https://www.powerofchoosingout.org" },
+      { label: "@la.poco on Instagram", url: "https://www.instagram.com/la.poco/" },
+    ],
 
     sections: [
       {
