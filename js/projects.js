@@ -264,6 +264,84 @@ const PROJECTS = [
   },
 
   {
+    slug: "poco-ai-course",
+    title: "Teaching AI Literacy",
+    year: "2026",
+    accent: "clay",
+    cover: "assets/covers/poco-ai-course.png",
+    tags: ["Teaching", "Writing"],
+    role: "Curriculum design and instruction",
+
+    summary:
+      "A five-week AI literacy course for thirty high schoolers with no coding " +
+      "experience, ending with a working prototype app each.",
+
+    overview:
+      "I designed and taught an introductory AI course at POCO Foundation: " +
+      "five weeks, thirty high school students, none of whom had written code " +
+      "before. The deliverable was a prototype app each. About half carried " +
+      "on into the sessions that followed, and I now also help their media " +
+      "team run their websites and social accounts.",
+
+    stack: ["Thunkable", "Google Slides", "Zoom"],
+
+    links: [],
+
+    sections: [
+      {
+        heading: "Opening with Tetris",
+        body:
+          "The first version of the plan assumed the hard part was teaching. " +
+          "It wasn't — the hard part was earning thirty teenagers' attention " +
+          "in the first ten minutes, before any of them had decided whether " +
+          "this was worth their evening. So the class right after the pitch " +
+          "opened with me building Tetris in front of them from a single " +
+          "typed prompt. No theory first, no setup. Something they recognised, " +
+          "appearing from one sentence. Everything afterwards was easier to " +
+          "teach because they'd already seen the ceiling.",
+      },
+      {
+        heading: "One loop, taught five times",
+        body:
+          "The whole course runs on a single shape: describe what you want, " +
+          "get a prompt out of it, build, test, fix, go around again. Every " +
+          "week hangs off that loop rather than off a new topic, so nothing " +
+          "ever felt like starting over. The arrow I spent the most time on " +
+          "is the last one — I wanted them to read a failed test as the " +
+          "normal middle of building rather than evidence they weren't cut " +
+          "out for it. Beginners quit at that arrow. Naming it in advance is " +
+          "most of the fix.",
+      },
+      {
+        heading: "Vague in, vague out",
+        body:
+          "The actual skill being taught is specificity, so I taught it from " +
+          "a real transcript rather than a tidy example. I'd build an app at " +
+          "home during the week, then screen-share the genuine conversation " +
+          "that produced it — plain English in, a structured spec out, naming " +
+          "the screens and the rules. The demo stops at the moment the tool " +
+          "shows what it's about to build, because that's the point where you " +
+          "either read it or accept whatever you get. Checking the machine's " +
+          "work is the habit worth leaving them with.",
+        image: "assets/projects/poco-plan-mode.png",
+        caption:
+          "A description turned into explicit decisions — storage, audience, sign-in — before a line of the app exists.",
+      },
+      {
+        heading: "Written so someone else could teach it",
+        body:
+          "The lectures aren't slides with notes. Each one is a timed " +
+          "presenter script split into what to say, what to do, and what's on " +
+          "screen, with an instruction at the top telling whoever's reading to " +
+          "change any wording that doesn't sound like them. That constraint " +
+          "made the material better: writing for a stranger to deliver forces " +
+          "you to be explicit about the things you'd otherwise improvise, " +
+          "which is the same reason good documentation is hard to write.",
+      },
+    ],
+  },
+
+  {
     slug: "paparazzi-pursuit",
     title: "Paparazzi Pursuit",
     year: "2024",
