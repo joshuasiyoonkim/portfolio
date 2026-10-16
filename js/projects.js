@@ -79,6 +79,20 @@ const PROJECTS = [
           "A description turned into explicit decisions — storage, audience, sign-in — before a line of the app exists.",
       },
       {
+        heading: "What they shipped",
+        body:
+          "Five weeks earlier none of them had written code. These are three " +
+          "of the prototypes they finished: a poker odds calculator that works " +
+          "out your chances from your hole cards and the board, a daily mood " +
+          "journal with streaks and a timeline, and a task manager with " +
+          "subtasks, categories, priorities and live overdue countdowns. " +
+          "Nobody was assigned these ideas. Students picked what they wanted " +
+          "to exist, which is why the three have nothing in common except that " +
+          "they run.",
+        image: "assets/projects/poco-student-apps.jpg",
+        caption: "Student projects from the five-week course.",
+      },
+      {
         heading: "Adjusting every week",
         body:
           "I went in with a full plan for all five weeks. The plan held, but " +
