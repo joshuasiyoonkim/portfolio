@@ -14,7 +14,7 @@ const PROJECTS = [
     title: "Teaching AI Literacy",
     year: "2026",
     accent: "clay",
-    cover: "assets/covers/poco-ai-course.png",
+    cover: "assets/covers/poco-ai-course.jpg",
     tags: ["Teaching", "Writing"],
     role: "Curriculum design and instruction",
 
