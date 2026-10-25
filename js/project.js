@@ -115,9 +115,27 @@
 
   var sections = (project.sections || [])
     .map(function (s) {
-      var figure = s.image
-        ? "<figure>" +
-            '<img src="' + esc(assetURL(s.image)) + '" alt="' + esc(s.caption || s.heading || "") + '" loading="lazy">' +
+      // A section can carry either a video or an image, plus a caption.
+      // preload="metadata" so the page doesn't pull the whole file down
+      // before anyone presses play.
+      var media = "";
+      if (s.video) {
+        media =
+          '<video controls preload="metadata" playsinline' +
+          (s.poster ? ' poster="' + esc(assetURL(s.poster)) + '"' : "") +
+          ">" +
+          '<source src="' + esc(assetURL(s.video)) + '" type="video/mp4">' +
+          "Your browser can't play this video. " +
+          '<a href="' + esc(assetURL(s.video)) + '">Download it instead.</a>' +
+          "</video>";
+      } else if (s.image) {
+        media =
+          '<img src="' + esc(assetURL(s.image)) + '" alt="' +
+          esc(s.caption || s.heading || "") + '" loading="lazy">';
+      }
+
+      var figure = media
+        ? "<figure>" + media +
             (s.caption ? "<figcaption>" + esc(s.caption) + "</figcaption>" : "") +
           "</figure>"
         : "";

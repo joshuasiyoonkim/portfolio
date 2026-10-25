@@ -114,6 +114,68 @@ const PROJECTS = [
   // the parts an interviewer will actually ask you about.
   // ==========================================================
   {
+    slug: "all-men-are-equal",
+    title: "All Men Are Equal",
+    year: "2026",
+    accent: "ink",
+    cover: "assets/covers/all-men-are-equal.jpg",
+    tags: ["Motion", "Typography"],
+    role: "Motion design and editing",
+
+    summary:
+      "A 35-second kinetic typography piece set to a Martin Luther King Jr. " +
+      "speech — white text, black screen, nothing else to hide behind.",
+
+    overview:
+      "A short motion exercise: set a passage of a Martin Luther King Jr. " +
+      "speech as kinetic type, with no footage, no imagery and no colour. " +
+      "Built in After Effects with final edits in CapCut. The constraint was " +
+      "the point — if the only variables are words, weight, position and " +
+      "timing, then every one of them has to be doing something.",
+
+    stack: ["After Effects", "CapCut"],
+
+    links: [],
+
+    sections: [
+      {
+        heading: "Cutting to the speech, not the beat",
+        body:
+          "The timing is set by the speaking, which is less regular than a " +
+          "music track and far less forgiving. Words land on stresses, lines " +
+          "hold through pauses, and the breaks between phrases carry as much " +
+          "weight as the phrases. Type that arrives a few frames off the voice " +
+          "reads as broken even if you can't say why — most of the work here " +
+          "was moving keyframes a few frames at a time until it stopped " +
+          "feeling wrong.",
+        video: "assets/projects/all-men-are-equal.mp4",
+        poster: "assets/projects/all-men-are-equal-poster.jpg",
+        caption: "35 seconds, 720p. Audio is the original speech.",
+      },
+      {
+        heading: "Depth without anything to see",
+        body:
+          "On a black screen with white text, the only way to build a " +
+          "foreground is to build a background first. Lines that have passed " +
+          "and lines still coming sit behind the current one in near-black " +
+          "grey, large and slightly out of register, so the frame has layers " +
+          "even though nothing is in it. It also means a viewer can see where " +
+          "they are in the passage — what was just said and what's arriving — " +
+          "without any of it competing with the line being read.",
+      },
+      {
+        heading: "Two typefaces, doing different jobs",
+        body:
+          "A serif carries the quoted speech and a condensed sans handles the " +
+          "connective words — the \"not because\" set on its side, the " +
+          "fragments that hinge one line to the next. Keeping those two roles " +
+          "in different faces means the hierarchy reads instantly at any " +
+          "moment you pause the video, without a single change of colour.",
+      },
+    ],
+  },
+
+  {
     slug: "spikereport",
     title: "SpikeReport",
     year: "2026",
