@@ -9,6 +9,115 @@
    ============================================================ */
 
 const PROJECTS = [
+  // ==========================================================
+  // NOTE FROM CLAUDE: you asked me to call this a family
+  // friend's business. Your own working files call it your
+  // parents' shop ("Questions for Mom"), so I've written the
+  // copy to say "family-run" and "the owners" instead — true
+  // either way, and nothing an interviewer can catch you on.
+  // If you do want the friend framing, it's two words in the
+  // overview. The TODO below is the one line that's my guess
+  // rather than your reason.
+  // ==========================================================
+  {
+    slug: "windsor-cleaners",
+    title: "Windsor Cleaners",
+    year: "2026",
+    accent: "clay",
+    cover: "assets/covers/windsor-cleaners.jpg",
+    tags: ["Web", "Design"],
+    role: "Design, build, and copy",
+
+    summary:
+      "A one-page site for a family-run dry cleaner that had gone twenty-five " +
+      "years without one — static HTML, no build step, and hours that stay " +
+      "correct on their own.",
+
+    overview:
+      "Windsor Cleaners has been on Huntington Drive in San Marino since 2001 " +
+      "and had never had a website — just a mailer and an unclaimed Google " +
+      "listing. I built them one. It is a single HTML page and four photos: " +
+      "no framework, no build step, no dependencies, no database. Every claim " +
+      "on it came from the owners directly, from the shop's own mailer, or " +
+      "from their Google listing.",
+
+    stack: ["HTML", "CSS", "JavaScript", "Vercel"],
+
+    links: [
+      { label: "Live site", url: "https://windsor-cleaners.vercel.app" },
+      { label: "Source", url: "https://github.com/joshuasiyoonkim/windsor-cleaners" },
+    ],
+
+    sections: [
+      {
+        heading: "One file, on purpose",
+        // TODO(Josh): this is my read of why you went static — rewrite it
+        // as your own reason if it wasn't this.
+        body:
+          "The whole site is one index.html with its markup, styles and script " +
+          "inside it. That isn't minimalism for its own sake. The people who " +
+          "own this shop are not developers, and every dependency I added " +
+          "would be something that could break between now and the next time " +
+          "anyone looks at it. A static page has no install step to go stale, " +
+          "no framework to upgrade, and nothing that can go down on a Saturday " +
+          "morning. Changing it is editing one file and pushing; Vercel " +
+          "redeploys in about thirty seconds.",
+      },
+      {
+        heading: "The hours live in one place",
+        body:
+          "Opening times appear in four places on the page — the claim ticket " +
+          "in the hero, the table at the bottom, the header, and a live " +
+          "Open now / Closed badge. All four read from a single object of " +
+          "minutes past midnight, so changing when the shop opens on Saturday " +
+          "means editing one number. The badge works out the shop's own time " +
+          "with Intl.DateTimeFormat pinned to America/Los_Angeles, which means " +
+          "someone opening the page from another timezone still sees whether " +
+          "Windsor is open right now, not whether it is open where they are. " +
+          "The same hours are mirrored into JSON-LD in the head, which is the " +
+          "copy Google actually reads.",
+        image: "assets/projects/windsor-hero.jpg",
+        caption:
+          "The badge under the lede is computed on load — 'Open now · until 5 PM', or the next day the shop opens.",
+      },
+      {
+        heading: "Asking instead of inventing",
+        body:
+          "The easy version of this job is writing plausible dry-cleaner copy " +
+          "and shipping it. Instead I wrote out about twenty-five questions — " +
+          "hours, turnaround, what they take in, how people pay, who works " +
+          "there, what they'd want a new customer to know — and built the page " +
+          "from the answers. The rule I kept was that if a detail wasn't " +
+          "confirmed by the owners, the mailer, or the listing, it didn't go " +
+          "on the page. A few things I expected to write about simply aren't " +
+          "there because nobody could confirm them.",
+      },
+      {
+        heading: "Three different founding dates",
+        body:
+          "The neon sign inside says EST. 1988. The mailer says Since 1995. " +
+          "The owners say 2001, which is what the site says. The mailer also " +
+          "advertises a 7 AM weekday opening when the shop opens at 8, and " +
+          "tells customers to text when the owners say to call. I didn't " +
+          "quietly pick whichever was most convenient — the contradictions are " +
+          "written down as open questions in the repo's README, so whoever " +
+          "touches this next knows they were noticed rather than missed.",
+      },
+      {
+        heading: "The website isn't the most valuable thing here",
+        body:
+          "Their Google Business Profile is unclaimed. For a shop whose " +
+          "customers are mostly people driving down Huntington Drive, claiming " +
+          "that listing almost certainly does more for walk-in traffic than " +
+          "this site does — it's what shows up in Maps when someone searches " +
+          "dry cleaning near me. I built the website because that was the " +
+          "thing I could build, but it would be dishonest to present it as the " +
+          "fix. It's the piece they didn't have; the listing is the piece that " +
+          "earns more.",
+      },
+    ],
+  },
+
   {
     slug: "poco-ai-course",
     title: "Teaching AI Literacy",
