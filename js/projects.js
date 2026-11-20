@@ -19,16 +19,19 @@ const PROJECTS = [
     role: "Design, engineering, and writing",
 
     summary:
-      "A Valorant editorial site I design, build, and write for — 74 articles " +
-      "running on a statically generated publishing pipeline with no database.",
+      "A Valorant editorial site I design, build, and write for — 147 articles " +
+      "on a static publishing pipeline, plus Discord sign-in and comments " +
+      "secured entirely in the database.",
 
     overview:
       "SpikeReport is a personal Valorant hub: patch note breakdowns, pro " +
       "circuit coverage, roster moves, and a curated clip archive. I built the " +
       "whole thing — the design, the front end, the publishing pipeline — and " +
-      "I write every article on it.",
+      "I write every article on it. Readers can now sign in with Discord and " +
+      "comment, backed by a Supabase PostgreSQL database with separate dev and " +
+      "production environments.",
 
-    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Vercel"],
+    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "Vercel"],
 
     links: [
       { label: "Live site", url: "https://spike-report.vercel.app" },
@@ -50,27 +53,72 @@ const PROJECTS = [
         heading: "Publishing without a CMS",
         body:
           "Every article is a markdown file with YAML frontmatter, parsed with " +
-          "gray-matter and rendered through marked. There's no database and no " +
-          "hosted CMS — publishing is a git commit, which means the content has " +
-          "version history for free and the site has nothing to go down. " +
-          "Categories, reading time, and the RSS feed are all derived from the " +
-          "files themselves, so adding an article means adding one file and " +
-          "nothing else.",
+          "gray-matter and rendered through marked, and pre-rendered at build " +
+          "time through generateStaticParams — all 147 article pages are static " +
+          "HTML before anyone requests one. Publishing is a git commit, so the " +
+          "content has version history for free. Categories, reading time, and " +
+          "the RSS feed are all derived from the files themselves, so adding an " +
+          "article means adding one file and nothing else. The local editor " +
+          "that writes those files is disabled in production, because on " +
+          "serverless the filesystem is read-only and a write endpoint would " +
+          "fail silently once deployed.",
       },
       {
-        heading: "Why there's no database",
+        heading: "A database for the one thing git can't do",
+        // TODO(Josh): the "why Discord" sentence is my guess — swap in your
+        // real reason if it was something else.
         body:
-          "Article routes are pre-rendered at build time through " +
-          "generateStaticParams, so all 74 pages are static HTML by the time " +
-          "anyone requests one — the content layer is the filesystem and the " +
-          "build is the pipeline. The interesting consequence is the editor: " +
-          "there's an admin route that writes markdown files directly, and it " +
-          "is explicitly disabled when NODE_ENV is production. That isn't " +
-          "caution for its own sake. On serverless the filesystem is ephemeral " +
-          "and read-only, so a write endpoint that works perfectly in local " +
-          "development would fail silently once deployed. Gating it was the " +
-          "honest fix. Roughly 89KB of TypeScript across 39 files and 17 " +
-          "components.",
+          "The articles still don't need a database, and they still don't " +
+          "have one. Comments are different: readers write them, so they can't " +
+          "arrive as a commit. That's the one place SpikeReport now uses " +
+          "Supabase. Sign-in is Discord only, because that's where the people " +
+          "who'd comment on a Valorant site already have an account. Dev and " +
+          "production are separate Supabase projects, and every schema change " +
+          "is a versioned SQL migration — written to apply cleanly to a fresh " +
+          "production project, not just to the dev database it was tested on.",
+      },
+      {
+        heading: "The database is the security boundary",
+        body:
+          "The browser talks straight to Supabase with a publishable key. " +
+          "There's no server route in between and no service-role key in the " +
+          "app, so every rule has to hold against someone calling the API " +
+          "directly with whatever payload they like. Row-level security decides " +
+          "which rows a request can touch, and triggers decide what a row may " +
+          "contain. The public profiles table stores a display name and an " +
+          "avatar and nothing else — no email, no Discord ID, because once " +
+          "those are published they can't be unpublished. Avatar URLs must " +
+          "start with Discord's CDN, so nobody can point their profile picture " +
+          "at a server they control. Comments are length-checked, " +
+          "rate-limited, and checked for duplicates, and a removed comment's " +
+          "text becomes unreachable over the API rather than just hidden by " +
+          "the interface.",
+      },
+      {
+        heading: "Nobody can make themselves admin",
+        body:
+          "Admin is a column on the profiles table, which makes it the most " +
+          "obvious thing to attack. The table has no update policy, and update " +
+          "permission is revoked from every API role — but permissions in " +
+          "Postgres fail open. One careless grant in a later migration would " +
+          "quietly hand it back with no error anywhere. So there's a third " +
+          "layer: a trigger that rejects any change to the admin flag coming " +
+          "from an API role, no matter what the permissions say. Each layer " +
+          "fails differently, which is the point of having all three.",
+      },
+      {
+        heading: "The migration said it was fixed",
+        body:
+          "After deploying, I checked the permissions the database actually " +
+          "had instead of trusting the migrations that set them — and four " +
+          "internal functions were still callable by anonymous visitors. There " +
+          "turned out to be two separate ways a Postgres function in Supabase " +
+          "becomes publicly executable: Postgres grants it to everyone by " +
+          "default, and Supabase separately grants it to its API roles " +
+          "directly. My migrations had closed the first and not the second, " +
+          "and applied without a single error. A follow-up migration revokes " +
+          "both. The lesson I took from it is that a migration succeeding only " +
+          "tells you it ran, not that it did what you meant.",
       },
       {
         heading: "Built to be shared, not just visited",
